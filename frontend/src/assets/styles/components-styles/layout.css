@@ -1,0 +1,189 @@
+/* Navbar Container */
+.navbar-container {
+  height: 110vh;
+  width: 100%;
+  font-family: "Segoe UI", Arial, sans-serif;
+  position: relative;
+  top: 0;
+  z-index: 1000;
+}
+.nav-container-child1{
+    width: 100%;
+    padding: 4px 10px;
+    background-color: rgba(242, 239, 239, 0.39);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.background-home{
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;   
+}
+
+/* Logo Section */
+.web-logo {
+  flex: 1;
+}
+
+.web-logo img {
+  height: 40px;
+  cursor: pointer;
+}
+
+/* Right Section */
+.register-account {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 35px;
+}
+
+.register-account .register-bussiness , 
+.manage-booking , .login-or-create-account , 
+.select-lang-currency{
+   display: flex;
+   cursor: pointer;
+}
+
+.nav-icon{
+   display: flex;
+   font-size: 20px;
+   align-items: center;
+}
+.nav-info{
+    padding-left: 10px;
+}
+
+.register-account > div:hover {
+  color: #008cff; 
+}
+
+/* Icon inside each section */
+.register-account img,
+.register-account i {
+  width: 28px;
+  height: 28px;
+  margin-bottom: 4px;
+  object-fit: contain;
+  color: #444;
+}
+
+
+.register-account h4 {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 2px 0;
+}
+
+.register-account p {
+  font-size: 12px;
+  color: #6b6b6b;
+  margin: 0;
+}
+
+/* Login or Create Account */
+.login-or-create-account {
+  flex-direction: row !important;
+  align-items: center !important;
+  gap: 8px;
+}
+
+.login-or-create-account h4 {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* Language & Currency */
+.select-lang-currency {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: #333;
+}
+
+.select-lang-currency i {
+  font-size: 16px;
+  margin-right: 4px;
+  color: #444;
+}
+
+.select-lang-currency span {
+  cursor: pointer;
+}
+
+.select-lang-currency span:hover {
+  color: #008cff;
+}
+
+
+
+/* Select Service Type */
+
+.search-options-container {
+  width: 40%;
+  margin: 30px auto 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 80px;
+  background: rgb(255, 255, 255); /* white with opacity */
+  padding: 15px 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  position: relative;
+  z-index: 1;
+  top: 6%;
+}
+
+/* Each option */
+.search-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+
+
+.search-option:hover .nav-link {
+  color: #008cff; /* MakeMyTrip blue */
+}
+
+.search-option.active .nav-link {
+  color: #008cff;
+  font-weight: 600;
+}
+
+/* Icon styling */
+.icon-box {
+  width: 30px;
+  height: 30px;
+  margin-bottom: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-icon {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Link text */
+.nav-link {
+  font-size: 16px;
+  font-weight: 500;
+  color: #444;
+  text-decoration: none !important;
+  
+}

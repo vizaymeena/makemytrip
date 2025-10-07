@@ -1,0 +1,204 @@
+/* Form Container */
+.cab-form {
+    display: flex;
+    flex-direction: column;
+    max-width: 1200px;
+    margin: 30px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    gap: 10px;
+    border: 1px solid rgb(161, 161, 161);
+    height: 280px;
+}
+
+/* Segment Radio Buttons */
+.cab-segment {
+    display: flex;
+    gap: 10px;
+    padding: 15px 0;
+    border-bottom: 1px solid #ccc;
+}
+
+.cab-segment .segment {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    border: 1px solid #ccc;
+    padding: 10px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    min-width: 200px;
+    transition: all 0.3s ease;
+}
+
+.cab-segment .segment:hover {
+    border-color: #190768;
+    background-color: #f3f2ff;
+}
+
+.cab-segment input[type="radio"] {
+    accent-color: #190768;
+}
+
+/* Cab Criteria Section */
+.cab-criteria {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
+/* From-To Input with Exchange Icon */
+.from-to {
+    display: flex;
+    position: relative;
+    gap: 15px;
+    align-items: center;
+}
+
+.input-field {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-field span {
+    font-size: 12px;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.input-field input {
+    width: 250px;
+    height: 50px;
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.input-field input:focus {
+    border-color: #190768;
+}
+
+.ex-icon {
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    height: 35px;
+    width: 35px;
+    background-color: #190768;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.ex-icon:hover {
+    background-color: #120548;
+}
+
+/* Date & Time Inputs */
+.cab-departure, .cab-return, .cab-pickup-time {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.cab-departure input,
+.cab-return input,
+.cab-pickup-time input {
+    width: 180px;
+    height: 45px;
+    padding: 6px 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.cab-departure input:focus,
+.cab-return input:focus,
+.cab-pickup-time input:focus {
+    border-color: #190768;
+}
+
+.cab-departure span,
+.cab-return span,
+.cab-pickup-time span {
+    font-size: 12px;
+    color: #555;
+}
+
+/* Add Stops */
+.cab-stops {
+    color: #190768;
+    cursor: pointer;
+    font-weight: 500;
+    margin-top: 10px;
+    transition: all 0.3s ease;
+}
+
+.cab-stops:hover {
+    text-decoration: underline;
+}
+
+/* Search Button */
+.btn-search {
+    margin-top: 15px;
+}
+
+.btn-search button {
+    padding: 10px 35px;
+    background-color: #190768;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-search button:hover {
+    background-color: #120548;
+}
+
+/* Responsive */
+@media screen and (max-width: 900px) {
+    .cab-criteria {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .from-to {
+        flex-direction: column;
+        position: relative;
+        gap: 10px;
+    }
+
+    .input-field input {
+        width: 100%;
+    }
+
+    .ex-icon {
+        position: relative;
+        top: 0;
+        left: 0;
+        transform: none;
+        margin: 0 auto;
+    }
+
+    .cab-departure input,
+    .cab-return input,
+    .cab-pickup-time input {
+        width: 100%;
+    }
+}
