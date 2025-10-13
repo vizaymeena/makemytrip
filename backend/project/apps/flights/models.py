@@ -2,7 +2,7 @@ from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator, RegexValidator
 
 # Service Provider Model
-from apps.common.models import ServiceProvider
+from apps.common.models import Airline
 
 
 
@@ -10,7 +10,7 @@ from apps.common.models import ServiceProvider
 
 # Aircraft Type Small,Big 
 class Aircraft(models.Model):
-    airline = models.ForeignKey(ServiceProvider,on_delete=models.CASCADE)
+    airline = models.ForeignKey(Airline,on_delete=models.CASCADE)
     total_seats = models.PositiveIntegerField(validators=[MinValueValidator(1)])
     economy_seats = models.PositiveIntegerField(default=0)
     business_seats = models.PositiveIntegerField(default=0)
@@ -38,9 +38,23 @@ class Airport(models.Model):
     def __str__(self):
         return f"{self.code} - {self.name}"
 
+
+class Terminal(models.Model):
+    airport = models.ForeignKey(Airport, on_delete=models.CASCADE, related_name="terminals")
+    name = models.CharField(max_length=50)  # e.g., Terminal 1, Terminal 2
+    code = models.CharField(max_length=10, blank=True, null=True)  # optional terminal code
+    is_active = models.BooleanField(default=True)
+
+    class Meta:
+        unique_together = ("airport", "name")
+        ordering = ["airport", "name"]
+
+    def __str__(self):
+        return f"{self.airport.code} - {self.name}"
+
 # Permanent Flight Route For Journey
 class FlightRoute(models.Model):
-    airline = models.ForeignKey(ServiceProvider, on_delete=models.CASCADE)
+    airline = models.ForeignKey(Airline, on_delete=models.CASCADE)
     flight_number = models.CharField(max_length=10)
     origin = models.ForeignKey(Airport, related_name="departures", on_delete=models.CASCADE)
     destination = models.ForeignKey(Airport, related_name="arrivals", on_delete=models.CASCADE)
