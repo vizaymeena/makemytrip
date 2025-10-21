@@ -2,7 +2,7 @@ from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator, RegexValidator
 
 # Service Provider Model
-from apps.common.models import Airline
+from apps.common.models import ServiceProvider
 
 
 
@@ -10,7 +10,7 @@ from apps.common.models import Airline
 
 # Aircraft Type Small,Big 
 class Aircraft(models.Model):
-    airline = models.ForeignKey(Airline,on_delete=models.CASCADE)
+    airline = models.ForeignKey(ServiceProvider,on_delete=models.CASCADE)
     total_seats = models.PositiveIntegerField(validators=[MinValueValidator(1)])
     economy_seats = models.PositiveIntegerField(default=0)
     business_seats = models.PositiveIntegerField(default=0)
@@ -54,7 +54,7 @@ class Terminal(models.Model):
 
 # Permanent Flight Route For Journey
 class FlightRoute(models.Model):
-    airline = models.ForeignKey(Airline, on_delete=models.CASCADE)
+    airline = models.ForeignKey(ServiceProvider, on_delete=models.CASCADE)
     flight_number = models.CharField(max_length=10)
     origin = models.ForeignKey(Airport, related_name="departures", on_delete=models.CASCADE)
     destination = models.ForeignKey(Airport, related_name="arrivals", on_delete=models.CASCADE)
