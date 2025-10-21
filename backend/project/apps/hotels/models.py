@@ -1,5 +1,5 @@
 from django.db import models
-from apps.common.models import ServiceProvider
+from apps.common.models import *
 # Create your models here.
 
 
@@ -513,7 +513,6 @@ class HotelBooking(models.Model):
         verbose_name = _('Hotel Booking')
         verbose_name_plural = _('Hotel Bookings')
         indexes = [
-            models.Index(fields=['booking_reference']),
             models.Index(fields=['hotel', 'check_in_date']),
             models.Index(fields=['primary_guest', 'status']),
             models.Index(fields=['-booked_at']),
@@ -521,7 +520,7 @@ class HotelBooking(models.Model):
         ]
     
     def __str__(self):
-        return f"{self.booking_reference} - {self.hotel.name} ({self.check_in_date})"
+        return f"{self.hotel.name} ({self.check_in_date})"
     
     @property
     def balance_due(self):
@@ -565,4 +564,4 @@ class BookingRoom(models.Model):
         verbose_name_plural = _('Booking Rooms')
     
     def __str__(self):
-        return f"{self.booking.booking_reference} - {self.room_type.name}"
+        return f" - {self.room_type.name}"
